@@ -1,4 +1,7 @@
 # Front-End Developer Test
+## Screenshots
+![Capture1](https://user-images.githubusercontent.com/27319299/139090062-efe0e2b2-4d98-4384-a040-b24e8ae448be.PNG)
+![Capture2](https://user-images.githubusercontent.com/27319299/139090086-e0b6f68a-f94d-4b44-83d5-9651541a670f.PNG)
 
 ## Overview
 Your client has tasked you with creating an application to view the people of the Star Wars
