@@ -1,8 +1,12 @@
-import People from '../People';
+import Navbar from '../../views/Navbar';
+import Main from '../../views/Main/Main';
 
 function App() {
   return (
-    <People />
+    <>
+    <Navbar/>
+    <Main />
+    </>
   );
 }
 
