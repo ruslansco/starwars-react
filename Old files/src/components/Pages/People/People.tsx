@@ -1,6 +1,6 @@
 import React from 'react'
-import { fetchJson } from '../../api'
-import { PersonType } from '../../types'
+import { fetchJson } from '../../../api'
+import { PersonType } from '../../../types'
 import Person from '../Person'
 
 function People() {

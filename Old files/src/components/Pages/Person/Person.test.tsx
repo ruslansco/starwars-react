@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { PersonType } from '../../types';
+import { PersonType } from '../../../types';
 import Person from './Person'
 
 describe('<Person />', () => {

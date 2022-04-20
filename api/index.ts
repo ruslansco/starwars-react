@@ -1,6 +1,6 @@
-export async function fetchJSON<Response = any>(url: string, init?: RequestInit): Promise<Response> {
+export async function fetchJson<Response = any>(url: string, init?: RequestInit): Promise<Response> {
     const response = await fetch(
-      `https://swapi.dev/api/${url}`,
+      `https://swapi.dev/api/${url}/`,
       {
         ...init ?? {},
         headers: {
@@ -15,3 +15,4 @@ export async function fetchJSON<Response = any>(url: string, init?: RequestInit)
   
     return response.json()
   }
+  
