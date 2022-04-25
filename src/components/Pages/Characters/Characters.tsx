@@ -5,6 +5,8 @@ import Pagination from "../../Pagination";
 import { Grid } from '@mui/material';
 import ItemList from "../ItemList";
 import {FC} from "react";
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function Characters() {
     const [characters, setCharacters] = React.useState<CharacterType[]>([]);
@@ -27,8 +29,11 @@ function Characters() {
 
     return (
     <>
+
     <Grid container spacing={2}  justifyContent="center"  marginTop="10px">
+
         {characters.map((character,index) => <ItemList key={index} character={character}/>)}
+    
     </Grid>     
 
     <Pagination

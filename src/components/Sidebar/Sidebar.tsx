@@ -95,7 +95,7 @@ const themeLight = createTheme({
           border: "1px solid #000"
         }
       }
-    }
+    },
   }
 });
 
@@ -134,21 +134,12 @@ const themeDark = createTheme({
       }
     },
     MuiGrid: {
-styleOverrides: {
-  container: {
-    backgroundColor: "#000"
-  }
-}
-    },
-  MuiCard: {
-    styleOverrides: {
-      root: {
-        overflow: "visible",
-        boxShadow: "none",
-        backgroundColor: "#000"
+      styleOverrides: {
+        root: {
+          backgroundColor: "#000"
+        }
       }
     }
-  }
   }
 });
 
@@ -161,7 +152,7 @@ function Sidebar() {
         <Toolbar>
         <Box display='flex' flexGrow={1}>
         <Typography variant="h6" noWrap component="div">
-            Clipped drawer
+            React StarWars
           </Typography>
         </Box>
       
@@ -196,16 +187,7 @@ function Sidebar() {
             ))}
           </List>
           <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
+
         </Box>
       </Drawer>
       </ThemeProvider> 

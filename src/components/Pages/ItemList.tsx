@@ -13,6 +13,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import Divider from '@mui/material/Divider';
 import { Link } from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
+import CssBaseline from '@mui/material/CssBaseline';
 
 interface CharacterProps {
     character: CharacterType
@@ -22,15 +23,15 @@ interface CharacterProps {
 function ItemList({ character }: CharacterProps)  {
 
     return (
-    <>
+
         <Box sx={{ margin:"10px", border: '1px solid #000',  borderRadius: "10px", overflow:"hidden", "&:hover": {
         border: "1px solid #40c4a4",
         color: "#52edc7",
         transition: 'all .2s ease-in-out', 
             transform: 'scale(0.95)' 
       }}}>
-           <Card style={{minWidth: 320,maxWidth: 320, minHeight: 400, maxHeight: 400}}>
-           <CardContent style={{minHeight: 150,maxHeight: 150}}>
+           <Card style={{background: "transparent"}}>
+           <CardContent>
   <Typography style={{minHeight: 35,maxHeight: 35,minWidth: 300,maxWidth: 345}}>
   {character.name}
        </Typography>
@@ -60,7 +61,7 @@ Mass: {character.mass} kg
       </CardContent>
    </Card>
    </Box>
-    </>
+
     )}
     
 

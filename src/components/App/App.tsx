@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { BrowserRouter as Router, Route, Routes, Outlet, Link  } from "react-router-dom";
 import Characters from "../Pages/Characters";
 import Grid from '@mui/material/Grid';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
 <Sidebar/>
 <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-
+      <CssBaseline />
         <Routes>
 <Route path="/" element={<Characters />} />
 </Routes>
