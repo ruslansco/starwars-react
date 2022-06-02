@@ -6,5 +6,7 @@ export interface CharacterType {
     skin_color: string,
     eye_color: string,
     birth_year: string,
-    gender: string
+    gender: string,
+    homeworld: string,
+    species: [],
 } 

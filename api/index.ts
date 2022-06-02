@@ -3,10 +3,10 @@ export async function fetchJson<Response = any>(url: string, init?: RequestInit)
       `https://swapi.dev/api/${url}/`,
       {
         ...init ?? {},
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        }
+        mode: 'cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  }
       })
       if (!response.ok) {
         const message = `An error has occured: ${response.status}`;

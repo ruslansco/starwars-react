@@ -14,55 +14,65 @@ import Divider from '@mui/material/Divider';
 import { Link } from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
 import CssBaseline from '@mui/material/CssBaseline';
+import Paper from '@mui/material/Paper'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import { TableCell } from '@mui/material';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import { styled } from '@mui/material/styles';
 
 interface CharacterProps {
     character: CharacterType
   }
 
-
 function ItemList({ character }: CharacterProps)  {
 
     return (
 
-        <Box sx={{ margin:"10px", border: '1px solid #000',  borderRadius: "10px", overflow:"hidden", "&:hover": {
-        border: "1px solid #40c4a4",
-        color: "#52edc7",
-        transition: 'all .2s ease-in-out', 
-            transform: 'scale(0.95)' 
-      }}}>
-           <Card style={{background: "transparent"}}>
-           <CardContent>
-  <Typography style={{minHeight: 35,maxHeight: 35,minWidth: 300,maxWidth: 345}}>
-  {character.name}
-       </Typography>
+        <tbody>
 
-       <Divider style={{background:"#52edc7",marginBottom:"10px"}} variant="middle"/>
-  <List disablePadding style={{ width: '100%', textAlign:'center'}}>
-      <ListItem dense>
-      <NewspaperIcon  style={{ marginRight:'10px', color:'#52edc7'}} />
-          <Typography style={{ marginLeft:'0.2em',  fontSize:"16px", fontWeight: 500}}>
-          DOB: {character.birth_year}
-      </Typography>     
-      </ListItem>
+        <tr>
+            <td>{character.name}</td>
+            <td>{character.birth_year}</td>
+            <td>{character.gender}</td>
+            <td>{character.height}</td>
+            <td>{character.mass}</td>
+            <td>{character.homeworld}</td>
+            <td>{character.species}</td>
+        </tr>
 
-<ListItem dense>
-<LanguageIcon  style={{marginRight:'10px', color:'#52edc7'}} />
-<Typography style={{ marginLeft:'0.2em',  fontSize:"16px", fontWeight: 500}}>
-Mass: {character.mass} kg
-</Typography>
-</ListItem>
-<ListItem dense>
-      <PublishedWithChangesIcon  style={{marginRight:'10px', color:'#52edc7'}} />
-      <Typography style={{ marginLeft:'0.2em',  fontSize:"15px", fontWeight: 500}}>
-      Height: {character.height} cm
-      </Typography>
-</ListItem>
-    </List>
-      </CardContent>
-   </Card>
-   </Box>
+    </tbody>
+
+
+
+
 
     )}
     
 
 export default ItemList;
+
+
+/**
+
+ <TableBody>
+
+<TableRow
+  key={character.name}
+  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+>
+  <TableCell component="th" scope="row" variant="body">
+    {character.name}
+  </TableCell>
+  <TableCell align="right">{character.birth_year}</TableCell>
+  <TableCell align="right">{character.gender}</TableCell>
+  <TableCell align="right">{character.mass}</TableCell>
+  <TableCell align="right">{character.height}</TableCell>
+  <TableCell align="right">{character.hair_color}</TableCell>
+   <TableCell align="right">{character.eye_color}</TableCell>
+</TableRow>
+
+</TableBody>
+  */

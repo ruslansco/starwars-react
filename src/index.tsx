@@ -4,6 +4,7 @@ import {createRoot} from 'react-dom/client';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import './App.css';
 
 const rootElement = document.getElementById('root');
 //The non-null (!) assertion operator removes null and undefined from a type without doing any explicit type checking.

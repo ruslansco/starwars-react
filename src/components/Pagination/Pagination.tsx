@@ -24,42 +24,31 @@ const Pagination: React.FC<Props> = ({
   return (
 <>
 
-   <Button
-      sx={{"&:hover": {
-        border: "1px solid #40c4a4",
-        color: "#52edc7",
-        transition: 'all .2s ease-in-out', 
-            transform: 'scale(0.95)' 
-      }}}
-      style={{background: "#151E29", margin:"5px"}}
+   <button
+
+className="button1"
       onClick={() => handlePrevPage(currentPage)}
       disabled={currentPage === 1}
 >
-<ArrowBackIosNewIcon sx={{color:"#fff",margin:"5px"}} />
-    </Button>
+<ArrowBackIosNewIcon sx={{margin:"5px"}} />
+    </button>
 
 
-    <Button disabled style={{background: "#151E29",margin:"5px"}}>
-      <Typography color="#fff" padding="10px"> Page {currentPage} of {totalPages}</Typography>
-    </Button>
+    <button disabled  className="button">
+    <span> Page {currentPage} of {totalPages} </span>
+    </button>
 
 
         
-    <Button
-    style={{background: "#151E29", margin:"5px"}}
-      sx={{"&:hover": {
-        border: "1px solid #40c4a4",
-        color: "#52edc7",
-        transition: 'all .2s ease-in-out', 
-            transform: 'scale(0.95)' 
-      }}}
+    <button
+className="button1"
       onClick={() => handleNextPage(currentPage)}
       disabled={currentPage === totalPages}
     >
  
-      <ArrowForwardIosIcon sx={{color:"#fff",margin:"5px"}} />
+      <ArrowForwardIosIcon sx={{margin:"5px"}} />
  
-    </Button>
+    </button>
     </>
 
   );
