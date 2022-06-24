@@ -18,6 +18,9 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Link from '@mui/material/Link';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const drawerWidth = 240;
 
@@ -260,12 +263,13 @@ function Sidebar() {
     <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
+
         <Box display='flex' flexGrow={1}>
         <h3>
             React StarWars
             </h3>
         </Box>
-      
+ 
           <FormGroup>
       <FormControlLabel
         control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
@@ -273,8 +277,22 @@ function Sidebar() {
         onChange={() => setLight(prev => !prev)}
       />
     </FormGroup>
+    <Box
+sx={{
+  typography: 'body1',
+  '& > :not(style) + :not(style)': {
+    ml: 2,
+  },
+}}
+>
+  <Link color="inherit" href="https://github.com/ruslansco/starwars-react" target="blank"><GitHubIcon  sx={{marginTop:'10px'}} /></Link>
 
+<Link color="inherit" href="https://ruslans.net" target="blank"><PersonOutlineIcon  sx={{marginTop:'10px'}} /></Link>
+
+
+</Box>
         </Toolbar>
+        
       </AppBar>
       <Drawer
         variant="permanent"
@@ -285,6 +303,7 @@ function Sidebar() {
         }}
       >
         <Toolbar />
+
         <Box sx={{ overflow: 'auto' }}>
         <List>
             {['Characters', 'Planets'].map((text, index) => (
@@ -295,10 +314,12 @@ function Sidebar() {
                 <ListItemText primary={text} />
               </ListItem>
             ))}
+            
           </List>
           <Divider />
 
         </Box>
+
       </Drawer>
       </ThemeProvider> 
   );
