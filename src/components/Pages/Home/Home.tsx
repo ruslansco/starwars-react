@@ -7,13 +7,11 @@ import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import TabUnstyled from '@mui/base/TabUnstyled';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Characters from "../Characters";
+import Characters from "../Blocks";
 
 function Home() {
 
   return (
-
-    
 
 <TabsUnstyled defaultValue={0}>
       <TabsListUnstyled> 
@@ -23,9 +21,6 @@ function Home() {
   <TabPanelUnstyled value={0}><Characters/></TabPanelUnstyled>
       <TabPanelUnstyled value={1}></TabPanelUnstyled>
     </TabsUnstyled>
-
-
-
 
   )
     }

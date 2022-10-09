@@ -5,7 +5,6 @@ import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -13,16 +12,31 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import GitHubIcon from '@mui/icons-material/GitHub';
-import Link from '@mui/material/Link';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import DesktopMacIcon from '@mui/icons-material/DesktopMac';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import BuildIcon from '@mui/icons-material/Build';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import {Link} from "react-router-dom";
+
 
 const drawerWidth = 240;
+
+interface Props {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window?: () => Window;
+}
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -71,7 +85,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-
 const themeLight = createTheme({
   palette: {
     background: {
@@ -82,47 +95,754 @@ const themeLight = createTheme({
     }
   },
   components: {
-    MuiAppBar: {
-      styleOverrides: {
-        colorPrimary: {
-          backgroundColor: "#fff",
-          color: "#000",
-          border: "1px solid #000"
-        }
-      }
-    },
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          color: "#000",
-          border: "1px solid #000"
-        }
-      }
-    },
     MuiButtonBase: {
       styleOverrides: {
-        root: {
-         color: "#000",
+        root:{
+          color:"#000",
         }
       }
     },
-    MuiListItemIcon: {
-      styleOverrides: {
-        root: {
-         color: "#000",
-        }
-      }
-    },
-    MuiGrid: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "#fff"
-        }
-      }
-    }
-  }
-});
+        MuiInputBase:{
+            styleOverrides: {
+            root: {
+              color: "#000"
+            },
 
+          }
+        },
+        MuiOutlinedInput: {
+          styleOverrides: {
+            root: {
+              color: "#000"
+            }
+          }
+        },
+        MuiFormControl:{
+          styleOverrides: {
+            root: {
+              color: "#000"
+            }
+          }
+        },
+        MuiTextField:{
+          styleOverrides: {
+            root: {
+              color: "#000"
+            }
+          }
+        },
+        MuiFormLabel:{
+          styleOverrides: {
+            root: {
+              color: "#000"
+            }
+          }
+        },
+        MuiInputLabel:{
+
+        },
+        MuiAppBar: {
+          styleOverrides: {
+            colorPrimary: {
+              backgroundColor: "#fff",
+              color: "#000",
+              border: "1px solid #000"
+            }
+          }
+        },
+        MuiDrawer: {
+          styleOverrides: {
+            paper: {
+              backgroundColor:"#fff",
+              border: "1px solid #000"
+            }
+          }
+        },
+        MuiListItemIcon: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+          }
+        },
+        MuiGrid: {
+          styleOverrides: {
+            root: {
+
+            }
+          }
+        },
+        MuiAlert: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+      },
+        MuiAutocomplete: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiAvatar: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiAvatarGroup: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiBackdrop: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiBadge: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiBottomNavigation: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiBottomNavigationAction: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiBreadcrumbs: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiButtonGroup: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCard: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCardActionArea: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCardActions: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCardContent: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCardHeader: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCardMedia: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCheckbox: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiChip: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCircularProgress: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCollapse: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiContainer: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiCssBaseline: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiDialog: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiDialogActions: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiDialogContent: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiDialogContentText: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiDialogTitle: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiDivider: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiAccordion: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiAccordionActions: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiAccordionDetails: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiAccordionSummary: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiFab: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiFilledInput: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiFormControlLabel: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiFormGroup: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiFormHelperText: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiImageList: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiImageListItem: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiImageListItemBar: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiIcon: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiIconButton: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiInput: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiInputAdornment: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiLinearProgress: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiLink: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiList: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiListItem: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiListItemButton: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiListItemAvatar: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiListItemSecondaryAction: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiListItemText: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiListSubheader: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiMenu: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiMenuItem: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiMobileStepper: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiModal: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiNativeSelect: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiPagination: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiPaginationItem: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+      
+        MuiPopover: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiRadio: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiRating: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiScopedCssBaseline: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSkeleton: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSlider: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSnackbar: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSnackbarContent: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSpeedDial: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSpeedDialIcon: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiStep: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiStepButton: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiStepConnector: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiStepContent: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiStepIcon: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiStepLabel: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiStepper: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSvgIcon: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiSwitch: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTab: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTable: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTableBody: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTableCell: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTableContainer: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTableFooter: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTableHead: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTablePagination: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTableRow: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTableSortLabel: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiToggleButton: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiToggleButtonGroup: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiToolbar: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTouchRipple: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+        MuiTypography: {
+          styleOverrides: {
+            root: {
+             color: "#000",
+            }
+        }
+        },
+    
+      }
+    });
+    
+   
 const themeDark = createTheme({
   palette: {
     background: {
@@ -133,95 +853,20 @@ const themeDark = createTheme({
     }
   },
   components: {
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundColor:"#fff",
-          backgroundImage:"#fff",
-          color: "#fff",
-          border: "1px solid #000"
-        }
-      }
-    },
-    MuiTableContainer: {
-      styleOverrides: {
-        root: {
-          backgroundColor:"#fff",
-          color: "#fff",
-        }
-      }
-          },
-        MuiTable: {
-          styleOverrides: {
-            root: {
-              backgroundColor:"#fff",
-              color: "#fff",
-            }
-          }
-        },
-        MuiTableHead: {
-          styleOverrides: {
-            root: {
-              backgroundColor:"#fff",
-              color: "#fff",
-                }
-            }
-        },
-    MuiTableRow: {
-      styleOverrides: {
-        root: {
-          backgroundColor:"#fff",
-          color: "#fff",
-            }
-        }
-    },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          '&:last-child': {
-            backgroundColor: '#fff',
-          },
-            },
-            body: {
-              color: "#000",
-            }
-        }
-    },
-    MuiTableBody: {
-      styleOverrides: {
-        root: {
-          backgroundColor:"#fff",
-          color: "#fff",
-            }
-        }
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          backgroundColor:"#151E29",
-          color: "#fff",
-          border: "1px solid #000"
-        }
-      }
-    },
-    MuiCardContent: {
-      styleOverrides: {
-        root: {
-          backgroundColor:"#151E29",
-          color: "#fff",
-          border: "1px solid #000"
-        }
-      }
-    },
     MuiButtonBase: {
       styleOverrides: {
         root:{
           color:"#fff",
         }
       }
+    }, 
+    MuiOutlinedInput:{
+      styleOverrides: {
+        root: {
+          color: "#fff"
+        }
+      }
     },
-   
-
     MuiAppBar: {
       styleOverrides: {
         colorPrimary: {
@@ -234,7 +879,6 @@ const themeDark = createTheme({
       styleOverrides: {
         paper: {
           backgroundColor:"#151E29",
-          color: "#f5f6f7",
           border: "1px solid #000"
         }
       }
@@ -246,81 +890,140 @@ const themeDark = createTheme({
         }
       }
     },
-    MuiGrid: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "#000"
-        }
-      }
-    }
+
   }
 });
 
-function Sidebar() {
+function Sidebar(props: Props) {
   const [light, setLight] = React.useState(false);
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <div>
+      <Toolbar />
+
+      <Box sx={{ overflow: 'auto' }}>
+      <List component="nav">
+      <Link
+      to={`/`}
+      style={{ textDecoration: 'none'}}>
+        <ListItem button>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="News" />
+        </ListItem>
+        </Link>
+        <Divider />
+        <Link
+      to={`/planets`}
+      style={{ textDecoration: 'none'}}>
+        <ListItem button>
+          <ListItemIcon>
+            <DesktopMacIcon />
+          </ListItemIcon>
+          <ListItemText primary="Planets" />
+        </ListItem>
+        </Link>
+        <Divider />
+        <Link
+      to={`/login`}
+      style={{ textDecoration: 'none'}}>
+        <ListItem button>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Login" />
+        </ListItem>
+        </Link>
+      </List>
+          <Divider />
+     
+          <ListItem>
+          <ListItemIcon>
+          <FormGroup>
+          <FormControlLabel
+        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+        label=""
+        onChange={() => setLight(prev => !prev)}
+      />
+         </FormGroup>
+          </ListItemIcon>
+        </ListItem>
+
+ 
+        </Box>
+    </div>
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+
   return (
     <ThemeProvider theme={light ? themeLight : themeDark}>
     <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
-
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
         <Box display='flex' flexGrow={1}>
         <h3>
-            React StarWars
+            Liberal.KG
             </h3>
         </Box>
- 
-          <FormGroup>
-      <FormControlLabel
-        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-        label=""
-        onChange={() => setLight(prev => !prev)}
-      />
-    </FormGroup>
-    <Box
-sx={{
-  typography: 'body1',
-  '& > :not(style) + :not(style)': {
-    ml: 2,
-  },
-}}
->
-  <Link color="inherit" href="https://github.com/ruslansco/starwars-react" target="blank"><GitHubIcon  sx={{marginTop:'10px'}} /></Link>
-
-<Link color="inherit" href="https://ruslans.net" target="blank"><PersonOutlineIcon  sx={{marginTop:'10px'}} /></Link>
 
 
-</Box>
         </Toolbar>
         
       </AppBar>
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-        }}
-      >
-        <Toolbar />
-
-        <Box sx={{ overflow: 'auto' }}>
-        <List>
-            {['Characters', 'Planets'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-            
-          </List>
-          <Divider />
-
-        </Box>
-
-      </Drawer>
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth
+            }
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth
+            }
+          }}
+          open
+        >
+                   {drawer}
+        </Drawer>
+      </Box>
       </ThemeProvider> 
   );
 }

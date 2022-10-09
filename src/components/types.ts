@@ -1,12 +1,115 @@
-export interface CharacterType {
-    name: string,
-    height: string,
-    mass: string,
-    hair_color: string,
-    skin_color: string,
-    eye_color: string,
-    birth_year: string,
-    gender: string,
-    homeworld: string,
-    species: [],
-} 
+export interface AllArticleType {
+    /*
+      id: number,
+      content: object,
+      created_at: string,
+      published: boolean,
+      */
+     id: number,
+     image: string,
+     date: Date,
+     link: string,
+     country: string,
+     title: string,
+     published: string,
+     time: string,
+     timestamp: Date,
+     source: string,
+    }
+    
+  
+  export interface UkraineArticleType {
+  
+     id: number,
+     image: string,
+     date: Date,
+     link: string,
+     country: string,
+     title: string,
+     published: string,
+     time: string,
+     timestamp: Date,
+     source: string,
+    }
+    
+    
+    export interface RussiaArticleType {
+  
+      id: number,
+      image: string,
+      date: Date,
+      link: string,
+      country: string,
+      title: string,
+      published: string,
+      time: string,
+      timestamp: Date,
+      source: string,
+     }
+    
+     export interface WorldArticleType {
+  
+      id: number,
+      image: string,
+      date: Date,
+      link: string,
+      country: string,
+      title: string,
+      published: string,
+      time: string,
+      timestamp: Date,
+      source: string,
+      text: string
+     }
+  
+  
+  export interface ArticlesType {
+    /*
+      id: number,
+      content: object,
+      created_at: string,
+      published: boolean,
+      */
+     id: number,
+     image: string,
+     date: Date,
+     link: string,
+     country: string,
+     title: string,
+     published: string,
+     time: string,
+     timestamp: Date,
+     source: string
+    }
+    
+    export interface ArticleType {
+      /*
+        id: number,
+        content: object,
+        created_at: string,
+        published: boolean,
+        */
+       id: number,
+       image: string,
+       date: Date,
+       link: string,
+       country: string,
+       title: string,
+       published: string,
+       time: string,
+       timestamp: Date,
+       source: string,
+      }
+  
+    export interface ContentType {
+      /*
+        id: number,
+        content: object,
+        created_at: string,
+        published: boolean,
+        */
+       image: string,
+       title: string,
+       source: string,
+      }
+      

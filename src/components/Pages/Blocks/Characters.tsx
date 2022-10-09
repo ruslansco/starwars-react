@@ -1,9 +1,9 @@
 import React from "react";
 import { fetchJSON } from "../../../api";
-import {CharacterType} from "../../types";
+import {UkraineArticleType} from "../../types";
 import Pagination from "../../Pagination";
 import { Grid } from '@mui/material';
-import ItemList from "../ItemList";
+import CharactersList from "./CharactersList";
 import {FC} from "react";
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,12 +15,27 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 
-
+const DashboardLayoutRoot = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flex: '1 1 auto',
+  maxWidth: '100%',
+  paddingTop: 64,
+  [theme.breakpoints.up('lg')]: {
+    paddingLeft: 280
+  }
+}));
 
 function Characters() {
-    const [characters, setCharacters] = React.useState<CharacterType[]>([]);
+  const [news, setNews] = React.useState<UkraineArticleType[]>([]);
+  
+  
     const [page, setPage] = React.useState(1);
-    const [totalPages, setTotalPages] = React.useState(10);
+    const [totalPages, setTotalPages] = React.useState(99);
+    
+    const [loading, setLoading] = React.useState(true);
+    const handleLoading = () => {
+      setLoading(false);
+      }
 
     const handlePrevPage = (prevPage: number) => {
     setPage((prevPage) => prevPage - 1);
@@ -30,12 +45,14 @@ function Characters() {
     setPage((nextPage) => nextPage + 1);
     };
 
-    React.useEffect(() => {
-        fetchJSON<{results: CharacterType[]}>("people?page="+page)
-        .then(charactersResponse => setCharacters(charactersResponse.results))
-        setTotalPages(totalPages);
-      }, [page, totalPages]);
+   React.useEffect(() => {
+    fetchJSON<UkraineArticleType[]>("news/ukraine?page="+page)
+    .then(news => setNews(news))
+    setTotalPages(totalPages);
+    setTimeout(() => setLoading(false),600);
+  }, [page, totalPages]);
 
+      console.log(news);
     return (
 <div className="container">
 <Box
@@ -45,24 +62,20 @@ function Characters() {
   minHeight="500px"
   maxHeight="500px"
 >
-          <table>
-        <thead>
-    
-          <tr>
-<th>Name</th>
-<th>Birth-Year</th>
-<th>Gender</th>
-<th>Height</th>
-<th>Mass</th>
-<th>Homeworld</th>
-<th>Species</th>
 
-          </tr>
-    
-        </thead>
-        {characters.map((character,index) => <ItemList key={character.name} character={character}/>)}
-       
-      </table>
+<DashboardLayoutRoot>
+        <Box
+          sx={{
+            display: 'flex',
+            flex: '1 1 auto',
+            flexDirection: 'column',
+            width: '100%'
+          }}
+        >
+        {news.map((articles, id) => <CharactersList key={id} articles={articles} />)}
+        </Box>
+      </DashboardLayoutRoot>
+
 
     </Box>     
     <Box
@@ -87,3 +100,7 @@ function Characters() {
     
 
 export default Characters;
+
+
+
+
